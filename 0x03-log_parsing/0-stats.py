@@ -5,7 +5,8 @@ import re
 from collections import defaultdict
 
 # Regular expression pattern to match the input format
-log_pattern = re.compile(r'^(\S+) - \[.*\] "GET /projects/260 HTTP/1.1" (\d+) (\d+)')
+log_pattern = re.compile(
+        r'^(\S+) - \[.*\] "GET /projects/260 HTTP/1.1" (\d+) (\d+)')
 
 # Initialize variables
 total_size = 0
