@@ -5,7 +5,7 @@ import re
 from collections import defaultdict
 
 # Regular expression pattern to match the input format
-log_pattern = re.compile(r'^(\S+) - \[.*\] "GET /projects/260 HTTP/1\.1" (\d+) (\d+)')
+log_pattern = re.compile(r'^(\S+) - \[.*\] "GET /projects/260 HTTP/1.1" (\d+) (\d+)')
 
 # Initialize variables
 total_size = 0
@@ -27,12 +27,12 @@ try:
 
             # Print statistics after every 10 lines
             if line_count % 10 == 0:
-                print("Total file size:", total_size)
+                print("File size:", total_size)
                 for code in sorted(status_code_counts.keys()):
                     print(f"{code}: {status_code_counts[code]}")
 
 except KeyboardInterrupt:
     # Handle CTRL + C to print statistics and exit
-    print("Total file size:", total_size)
+    print("File size:", total_size)
     for code in sorted(status_code_counts.keys()):
         print(f"{code}: {status_code_counts[code]}")
