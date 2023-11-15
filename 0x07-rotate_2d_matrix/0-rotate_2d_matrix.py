@@ -8,18 +8,22 @@ def rotate_2d_matrix(matrix):
     """rotate a 2d matrix
     returns nothing
     """
+    n = len(matrix)
 
-    left, right = 0, len(matrix) - 1
+    for layer in range(n // 2):
+        first, last = layer, n - layer - 1
 
-    while left < right:
-        for i in range(right - left):
-            top, bottom = left, right
-            topLeft = matrix[top][left + 1]
-            matrix[top][left + 1] = matrix[bottom - i][left]
-            matrix[bottom - i][left] = matrix[bottom][right - i]
+        for i in range(first, last):
+            top = matrix[first][i]
+            # Move left element to top
+            matrix[first][i] = matrix[last - (i - first)][first]
 
-            matrix[bottom][right - i] = matrix[top + i][right]
+            # Move bottom element to left
+            matrix[last - (i - first)
+                   ][first] = matrix[last][last - (i - first)]
 
-            matrix[top + i][right] = topLeft
-        right -= 1
-        left += 1
+            # Move right element to bottom
+            matrix[last][last - (i - first)] = matrix[i][last]
+
+            # Move top element to right
+            matrix[i][last] = top
