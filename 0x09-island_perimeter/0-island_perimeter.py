@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''find the perimeter'''
 
+
 def island_perimeter(grid):
     if not grid or not grid[0]:
         return 0
@@ -22,4 +23,3 @@ def island_perimeter(grid):
                     perimeter -= 2
 
     return perimeter
-
