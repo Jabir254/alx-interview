@@ -13,6 +13,7 @@ def isWinner(x, nums):
         return True
 
     def get_prime(n):
+        '''find the prime number'''
         primes = []
         for i in range(2, n + 1):
             if is_prime(i):
@@ -20,6 +21,7 @@ def isWinner(x, nums):
         return primes
 
     def game_winner(n):
+        '''finding the game winners'''
         primes = get_prime(n)
         xor_sum = 0
         for prime in primes:
